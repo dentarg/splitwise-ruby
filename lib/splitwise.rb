@@ -1,5 +1,6 @@
 require "splitwise/version"
 require "splitwise/constants"
+require "splitwise/errors/splitwise_errors"
 require "splitwise/client"
 require "splitwise/users"
 require "splitwise/friends"
