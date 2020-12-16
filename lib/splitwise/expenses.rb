@@ -32,7 +32,6 @@ module Splitwise
         params = "delete_expense/" + id
         request.update(params, data)
       end
-
     end
   end
 end

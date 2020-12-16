@@ -22,7 +22,6 @@ module Splitwise
         params = "update_user/" + id
         request.update(params, data)
       end
-
     end
   end
 end

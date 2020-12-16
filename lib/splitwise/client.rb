@@ -1,3 +1,4 @@
+require "json"
 require "net/http"
 require "uri"
 
@@ -8,6 +9,7 @@ module Splitwise
     def initialize
       @uri = Splitwise::BASE_URL+ "/" + Splitwise::API_VERSION + "/"
       @accessor_token = Splitwise.access_token
+      @api_key = Splitwise.api_key
     end
 
     def fetch(params)
@@ -19,7 +21,6 @@ module Splitwise
         response = request(:get, url)
       end
       parse_response(response)
-      response.body
     end
 
     def update(params, data)
@@ -44,6 +45,7 @@ module Splitwise
         end
         if req_method == :get
           request = Net::HTTP::Get.new(uri)
+          request["Authorization"] = "Bearer #{@api_key}"
         end
         response = http.request(request)
       else
@@ -74,6 +76,5 @@ module Splitwise
     def valid_response_code?(code)
       [200, 201].include?(code)
     end
-
   end
 end

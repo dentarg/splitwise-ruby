@@ -8,9 +8,9 @@ require "splitwise/groups"
 require "splitwise/expenses"
 require "splitwise/notifications"
 
-
 module Splitwise
-	class << self
-		attr_accessor :access_token
-	end
+  class << self
+    attr_accessor :access_token
+    attr_accessor :api_key
+  end
 end
